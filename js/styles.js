@@ -4,22 +4,36 @@
 import {StyleSheet} from "react-native";
 
 var Styles = StyleSheet.create({
-    titleBarIcon: {
-        marginLeft: 10,
-        marginRight: 10,
+    root: {
+        flex: 1,
+        backgroundColor: '#efeff4',
+    },
+    centerInContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    pageHeaderButton: {
+        padding: 10,
+        width: 50,
+        height: 50,
+    },
+    pageHeaderButtonIcon: {
         width: 30,
         height: 30,
     },
-    titleBarContent: {
+    pageHeaderContent: {
         flex: 1,
-        color: 'black',
-        textAlign: 'center',
+        alignItems: 'center',
+    },
+    pageHeaderContentText: {
+        color: 'white',
         fontSize: 18,
     },
-    titleBar: {
+    pageHeader: {
         height: 50,
         flexDirection: 'row',
         alignItems: 'center',
+        backgroundColor: '#099fde',
     },
     welcomeContainer: {
         flex: 1,
@@ -30,9 +44,8 @@ var Styles = StyleSheet.create({
     },
     welcomeDesc: {
         marginTop: 50,
-    },
-    root: {
-        flex: 1
+        fontSize: 20,
+        color: '#333333'
     },
     flex1RowVCenter: {
         flex: 1,
@@ -54,9 +67,34 @@ var Styles = StyleSheet.create({
         color: '#333333',
         fontSize: 16,
     },
+    loadingMask: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+    loadingMaskCenterView: {
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        marginLeft: 30,
+        marginRight: 30,
+        padding: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    loadingMaskImage: {
+        width: 40,
+        height: 40,
+    },
+    loadingMaskText: {
+        marginLeft: 20,
+        color: '#333333',
+        fontSize: 16,
+    },
     questionText: {
         marginTop: 10,
         marginLeft: 20,
+        marginRight: 20,
         color: '#333333',
         fontSize: 16,
         lineHeight: 25,
@@ -65,8 +103,10 @@ var Styles = StyleSheet.create({
         margin: 20,
     },
     questionItem: {
-        paddingLeft: 20,
-        paddingRight: 20,
+        marginLeft: 10,
+        marginRight: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
         paddingTop: 10,
         paddingBottom: 10,
         flexDirection: 'row',
@@ -76,7 +116,6 @@ var Styles = StyleSheet.create({
         height: 25,
     },
     questionItemText: {
-        flex: 1,
         marginLeft: 10,
         color: '#333333',
         fontSize: 16,
@@ -85,7 +124,6 @@ var Styles = StyleSheet.create({
     questionBottomMenu: {
         height: 50,
         flexDirection: 'row',
-        backgroundColor: "white",
     },
     questionBottomMenuFavourite: {
         marginLeft: 10,
@@ -96,6 +134,69 @@ var Styles = StyleSheet.create({
         color: "#333333",
         fontSize: 13,
         marginLeft: 5,
+    },
+    tabViewPagerTabs: {
+        height: 40,
+        flexDirection: 'row',
+    },
+    tavViewPagerTab: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    tabViewPagerTabUnSelect: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderBottomColor: '#c8c8c8',
+        borderBottomWidth: 1,
+    },
+    tabViewPagerTabSelect: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderBottomColor: '#099fde',
+        borderBottomWidth: 1,
+    },
+    tabViewPagerTabContentUnSelect: {
+        color: '#333333',
+        fontSize: 16,
+    },
+    tabViewPagerTabContentSelect: {
+        color: '#099fde',
+        fontSize: 16,
+    },
+    modelTabContainer: {
+        height: 50,
+        flexDirection: 'row',
+    },
+    modelTab: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderColor: '#c8c8c8',
+        borderBottomWidth: 1,
+        borderLeftWidth: 0.5,
+        borderRightWidth: 0.5,
+    },
+    modelTabContentUnSelect: {
+        color: '#333333',
+        fontSize: 16,
+    },
+    modelTabContentSelect: {
+        color: 'white',
+        fontSize: 16,
+    },
+    startAnswerBtn: {
+        margin: 20,
+        borderRadius: 4,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    startAnswerBtnText: {
+        color: 'white',
+        fontSize: 18,
     },
 });
 

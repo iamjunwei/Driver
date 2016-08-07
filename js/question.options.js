@@ -2,7 +2,7 @@
  * Created by xiajw on 16/8/3.
  */
 import React, {Component} from "react";
-import {View, Text, Image, TouchableOpacity} from "react-native";
+import {View, Text, Image, TouchableOpacity, ScrollView} from "react-native";
 import Styles from "./styles";
 import Answer from "./answer";
 
@@ -28,46 +28,58 @@ export default class QuestionOptions extends Component {
         let item4 = null;
         if (!this.props.data.isJudge) {
             item3 = (
-                <TouchableOpacity style={Styles.questionItem} activeOpacity={this.state.activeOpacity} onPress={() => {
+                <TouchableOpacity style={{marginTop: 5, marginBottom: 5, paddingLeft: 10, paddingRight: 10}}
+                                  activeOpacity={this.state.activeOpacity} onPress={() => {
                     this.selectAnswer(3)
                 }}>
                     <View
                         style={[Styles.questionItem, {backgroundColor: this.optionBackground(3)}]}>
                         <Image source={require("../image/app_logo.png")} style={Styles.questionItemIcon}/>
-                        <Text style={Styles.questionItemText}>{this.props.data.item3}</Text>
+                        <ScrollView>
+                            <Text style={Styles.questionItemText}>{this.props.data.item3}</Text>
+                        </ScrollView>
                     </View>
                 </TouchableOpacity>
             );
             item4 = (
-                <TouchableOpacity style={Styles.questionItem} activeOpacity={this.state.activeOpacity} onPress={() => {
+                <TouchableOpacity style={{marginTop: 5, marginBottom: 5, paddingLeft: 10, paddingRight: 10}}
+                                  activeOpacity={this.state.activeOpacity} onPress={() => {
                     this.selectAnswer(4)
                 }}>
                     <View
                         style={[Styles.questionItem, {backgroundColor: this.optionBackground(4)}]}>
                         <Image source={require("../image/app_logo.png")} style={Styles.questionItemIcon}/>
-                        <Text style={Styles.questionItemText}>{this.props.data.item4}</Text>
+                        <ScrollView>
+                            <Text style={Styles.questionItemText}>{this.props.data.item4}</Text>
+                        </ScrollView>
                     </View>
                 </TouchableOpacity>
             );
         }
         return (
-            <View style={{flex: 1, backgroundColor: "#efeff4"}}>
-                <TouchableOpacity style={Styles.questionItem} activeOpacity={this.state.activeOpacity} onPress={() => {
+            <View style={Styles.root}>
+                <TouchableOpacity style={{marginTop: 5, marginBottom: 5, paddingLeft: 10, paddingRight: 10}}
+                                  activeOpacity={this.state.activeOpacity} onPress={() => {
                     this.selectAnswer(1)
                 }}>
                     <View
                         style={[Styles.questionItem, {backgroundColor: this.optionBackground(1)}]}>
                         <Image source={require("../image/app_logo.png")} style={Styles.questionItemIcon}/>
-                        <Text style={Styles.questionItemText}>{this.props.data.item1}</Text>
+                        <ScrollView>
+                            <Text style={Styles.questionItemText}>{this.props.data.item1}</Text>
+                        </ScrollView>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={Styles.questionItem} activeOpacity={this.state.activeOpacity} onPress={() => {
+                <TouchableOpacity style={{marginTop: 5, marginBottom: 5, paddingLeft: 10, paddingRight: 10}}
+                                  activeOpacity={this.state.activeOpacity} onPress={() => {
                     this.selectAnswer(2)
                 }}>
                     <View
                         style={[Styles.questionItem, {backgroundColor: this.optionBackground(2)}]}>
                         <Image source={require("../image/app_logo.png")} style={Styles.questionItemIcon}/>
-                        <Text style={Styles.questionItemText}>{this.props.data.item2}</Text>
+                        <ScrollView>
+                            <Text style={Styles.questionItemText}>{this.props.data.item2}</Text>
+                        </ScrollView>
                     </View>
                 </TouchableOpacity>
                 {item3}

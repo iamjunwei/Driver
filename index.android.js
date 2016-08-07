@@ -7,7 +7,7 @@
 import React, {Component} from "react";
 import {AppRegistry, Navigator} from "react-native";
 import WelcomePage from "./js/welcome";
-import HomePage from "./js/home";
+import HomeContainer from "./js/home.container";
 
 class DriverLicense extends Component {
     render() {
@@ -20,7 +20,7 @@ class DriverLicense extends Component {
                             navigator.push({title: "Home", index: 1})
                         }}/>
                     } else {
-                        return <HomePage/>
+                        return <HomeContainer/>
                     }
                 }}
                 configureScene={(route, routeStack) => Navigator.SceneConfigs.FadeAndroid}

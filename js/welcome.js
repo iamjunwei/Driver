@@ -28,7 +28,7 @@ export default class WelcomePage extends Component {
                         }]
                     }
                     source={require("../image/app_logo.png")}/>
-                <Text style={Styles.welcomeDesc}>Welcome</Text>
+                <Text style={Styles.welcomeDesc}>轻松过驾考</Text>
             </View>
         )
     }
