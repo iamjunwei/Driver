@@ -11,7 +11,7 @@ export default class FetchData {
             let json = JSON.parse(response._bodyInit);
             for (var q in json.result) {
                 let qTemp = new QuestionModel();
-                qTemp.id = json.result[q].id;
+                qTemp.id = model + "_" + json.result[q].id;
                 qTemp.question = json.result[q].question;
                 qTemp.item1 = json.result[q].item1;
                 qTemp.item2 = json.result[q].item2;
