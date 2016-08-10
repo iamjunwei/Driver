@@ -4,6 +4,7 @@
 import React, {Component} from "react";
 import {View, Text, Animated} from "react-native";
 import Styles from "./styles";
+import FullScreenHeight from "./fullscreen.height";
 
 export default class WelcomePage extends Component {
     constructor(props) {
@@ -15,7 +16,9 @@ export default class WelcomePage extends Component {
 
     render() {
         return (
-            <View style={Styles.welcomeContainer}>
+            <View style={Styles.welcomeContainer} onLayout={(e) => {
+                FullScreenHeight.height = e.nativeEvent.layout.height;
+            }}>
                 <Animated.Image
                     style={
                         [Styles.welcomeIcon, {

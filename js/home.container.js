@@ -4,15 +4,13 @@
 import React, {Component} from "react";
 import {Navigator, BackAndroid} from "react-native";
 import HomePage from "./home.page";
-import PracticeInOrder from "./practice.inorder";
+import QuestionPage from "./question.page";
+import IconExplorer from "../vectoricons/vector.icons";
 
 export default class HomeContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            pageReady: false,
-        }
     }
 
     render() {
@@ -27,8 +25,10 @@ export default class HomeContainer extends Component {
                         );
                     } else if (route.index == 1) {
                         return (
-                            <PracticeInOrder data={route.data} navigator={navigator}/>
+                            <QuestionPage data={route.data} navigator={navigator} title={route.title}/>
                         )
+                    } else if (route.index == 99) {
+                        return <IconExplorer/>
                     }
 
                 }}

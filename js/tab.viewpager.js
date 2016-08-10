@@ -5,6 +5,7 @@ import React, {Component} from "react";
 import {View, TouchableOpacity, Text} from "react-native";
 import Styles from "./styles";
 import Swiper from "react-native-swiper";
+import FullScreenHeight from "./fullscreen.height";
 
 export default class TabViewPager extends Component {
     constructor(props) {
@@ -24,18 +25,19 @@ export default class TabViewPager extends Component {
             )
         }
         return (
-            <View style={Styles.root}>
+            <View style={[Styles.root, {alignItems: 'stretch'}]}>
                 <View style={Styles.tabViewPagerTabs}>
                     {this.renderTabs()}
                 </View>
                 <Swiper
                     ref="swiper"
                     loop={false}
-                    style={Styles.root}
+                    height={FullScreenHeight.height - 210}
                     renderPagination={(index, total, context) => {
                         return null;
                     }}
                     onMomentumScrollEnd={(e, state, context) => {
+                        this.props.onTabChange && this.props.onTabChange(state.index);
                         this.setState({selectTab: state.index})
                     }}>
                     {views}

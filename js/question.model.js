@@ -18,4 +18,5 @@ export default class QuestionModel {
     selectC = false;
     selectD = false;
     hasChoose = false;
+    isFavourite = false;
 }

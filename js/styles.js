@@ -124,11 +124,12 @@ var Styles = StyleSheet.create({
     questionBottomMenu: {
         height: 50,
         flexDirection: 'row',
+        backgroundColor: 'white',
     },
     questionBottomMenuFavourite: {
         marginLeft: 10,
-        height: 20,
-        width: 20,
+        height: 15,
+        width: 15,
     },
     questionBottomMenuFavouriteText: {
         color: "#333333",
@@ -167,7 +168,7 @@ var Styles = StyleSheet.create({
         fontSize: 16,
     },
     modelTabContainer: {
-        height: 50,
+        flex: 1,
         flexDirection: 'row',
     },
     modelTab: {
@@ -179,6 +180,14 @@ var Styles = StyleSheet.create({
         borderLeftWidth: 0.5,
         borderRightWidth: 0.5,
     },
+    modelTabInner: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 80,
+        height: 80,
+        borderRadius: 40,
+        borderColor: "#099fde",
+    },
     modelTabContentUnSelect: {
         color: '#333333',
         fontSize: 16,
@@ -187,16 +196,59 @@ var Styles = StyleSheet.create({
         color: 'white',
         fontSize: 16,
     },
-    startAnswerBtn: {
-        margin: 20,
-        borderRadius: 4,
-        height: 50,
+    homePageFunctionArea: {
+        height: 120,
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    startAnswerBtnText: {
+    homePageFunctionInOrder: {
+        flex: 1,
+        height: 80,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    homePageInOrderButtonArea: {
+        borderRadius: 40,
+        width: 80,
+        height: 80,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    homePageInOrderButton: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 15,
+    },
+    questionMenuLine: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 40,
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 15,
+        marginRight: 15,
+    },
+    questionMenuSingleNumContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    questionMenuSingleNumInnerView: {
+        height: 40,
+        width: 40,
+        borderRadius: 20,
+        borderWidth: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+
+    },
+    questionMenuTitle: {
+        height: 30,
+        marginTop: 15,
+        color: '#333333',
+        fontSize: 14,
+        marginLeft: 25,
     },
 });
 
