@@ -10,7 +10,7 @@ import FetchData from "./fetchData";
 import LoadingMask from "./loadingmask";
 import SaveRecord from "./save.record";
 import Icon from "react-native-vector-icons/FontAwesome";
-import IconIonicons from "react-native-vector-icons/Ionicons";
+import HomePageModelView from "./home.page.model";
 
 const subjects = ["科目一", "科目四"];
 
@@ -19,13 +19,13 @@ export default class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            model: "C1",
             isLoading: false,
             isReadingFavourite: false,
             isReadingWrong: false,
         };
         this.subject = "1";
         this.testType = "rand";
+        this.modelList = ["C1", "C1"];
     }
 
     render() {
@@ -89,81 +89,21 @@ export default class HomePage extends Component {
     renderViews = () => {
         let views = [];
         for (var i = 0; i < subjects.length; i++) {
+            let subject = "1";
+            if (i == 1) {
+                subject = "4";
+            }
             let view = (
-                <View style={{flex: 1}}>
-                    <View style={[Styles.modelTabContainer]}>
-                        <TouchableOpacity
-                            style={[Styles.modelTab]}
-                            onPress={() => {
-                                this.selectModel("C1")
-                            }}>
-                            <View style={[Styles.modelTabInner, {borderWidth: this.getModelBorderWidth("C1")}]}>
-                                <IconIonicons name="md-car" size={22} color={this.getModelContentColor("C1")}/>
-                                <Text
-                                    style={[Styles.modelTabContentUnSelect, {color: this.getModelContentColor("C1")}]}>C1</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={[Styles.modelTab]}
-                            onPress={() => {
-                                this.selectModel("C2")
-                            }}>
-                            <View style={[Styles.modelTabInner, {borderWidth: this.getModelBorderWidth("C2")}]}>
-                                <IconIonicons name="ios-car" size={20} color={this.getModelContentColor("C2")}/>
-                                <Text
-                                    style={[Styles.modelTabContentUnSelect, {color: this.getModelContentColor("C2")}]}>C2</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={Styles.modelTabContainer}>
-                        <TouchableOpacity
-                            style={[Styles.modelTab]}
-                            onPress={() => {
-                                this.selectModel("A1")
-                            }}>
-                            <View style={[Styles.modelTabInner, {borderWidth: this.getModelBorderWidth("A1")}]}>
-                                <Icon name="car" size={16} color={this.getModelContentColor("A1")}/>
-                                <Text
-                                    style={[Styles.modelTabContentUnSelect, {color: this.getModelContentColor("A1")}]}>A1</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={[Styles.modelTab]}
-                            onPress={() => {
-                                this.selectModel("A2")
-                            }}>
-                            <View style={[Styles.modelTabInner, {borderWidth: this.getModelBorderWidth("A2")}]}>
-                                <Icon name="bus" size={16} color={this.getModelContentColor("A2")}/>
-                                <Text
-                                    style={[Styles.modelTabContentUnSelect, {color: this.getModelContentColor("A2")}]}>A2</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={Styles.modelTabContainer}>
-                        <TouchableOpacity
-                            style={[Styles.modelTab]}
-                            onPress={() => {
-                                this.selectModel("B1")
-                            }}>
-                            <View style={[Styles.modelTabInner, {borderWidth: this.getModelBorderWidth("B1")}]}>
-                                <Icon name="truck" size={20} color={this.getModelContentColor("B1")}/>
-                                <Text
-                                    style={[Styles.modelTabContentUnSelect, {color: this.getModelContentColor("B1")}]}>B1</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={[Styles.modelTab]}
-                            onPress={() => {
-                                this.selectModel("B2")
-                            }}>
-                            <View style={[Styles.modelTabInner, {borderWidth: this.getModelBorderWidth("B2")}]}>
-                                <IconIonicons name="ios-bus" size={24} color={this.getModelContentColor("B2")}/>
-                                <Text
-                                    style={[Styles.modelTabContentUnSelect, {color: this.getModelContentColor("B2")}]}>B2</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                <HomePageModelView
+                    subject={subject}
+                    onModelChange={(subject, model) => {
+                        if (subject == "1") {
+                            this.modelList[0] = model;
+                        } else {
+                            this.modelList[1] = model;
+                        }
+                    }}
+                />
             );
             views.push(view);
         }
@@ -176,24 +116,6 @@ export default class HomePage extends Component {
         } else {
             this.subject = "4";
         }
-    }
-
-    selectModel = (model) => {
-        this.setState({
-            model: model
-        });
-    }
-
-    getModelBorderWidth = (model) => {
-        if (this.state.model == model) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    getModelContentColor = (model) => {
-        return "#099fde";
     }
 
     startAnswerInOrder = () => {
@@ -224,7 +146,13 @@ export default class HomePage extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (!prevState.isLoading && this.state.isLoading) {
-            FetchData.fetch(this.subject, this.state.model, this.testType, (questions) => {
+            let model = "C1";
+            if (this.subject == "1") {
+                model = this.modelList[0];
+            } else {
+                model = this.modelList[1];
+            }
+            FetchData.fetch(this.subject, model, this.testType, (questions) => {
                 SaveRecord.getFavourite((favourites) => {
                     let i = 0;
                     let j = 0;
